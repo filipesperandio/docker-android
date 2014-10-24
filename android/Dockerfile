@@ -13,6 +13,9 @@ RUN echo "export PATH=$PATH" >> /home/user/.bashrc
 
 RUN echo y | android update sdk --all --no-ui --force 
 
+RUN echo y | android update sdk --all  --no-ui --force \
+  --filter platform-tools,build-tools-20.0.0,android-20,android-19,android-18,sysimg-18,system-image,extra-android-support
+
 # Fix android's zipalign path screw up
 RUN sudo ln -s /home/user/android-sdk-linux/build-tools/20.0.0/zipalign /home/user/android-sdk-linux/tools/zipalign
 
