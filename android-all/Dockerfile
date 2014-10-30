@@ -1,4 +1,4 @@
-FROM jdk7
+FROM filipesperandio/jdk7
 
 USER user
 
