@@ -40,3 +40,4 @@ RUN echo y | android update sdk --all --no-ui --force --filter android-23 \
     && echo y | android update sdk --all --no-ui --force --filter extra-google-play_licensing \
     && echo y | android update sdk --all --no-ui --force --filter extra-google-gcm
 
+USER developer
