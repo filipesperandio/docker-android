@@ -7,18 +7,13 @@ RUN \
   apt-get update && \
   apt-get -y upgrade && \
   apt-get install -y build-essential && \
-  apt-get install -y software-properties-common 
-
-RUN \
+  apt-get install -y software-properties-common && \
   apt-get update && \
-  apt-get install -y lib32gcc1 lib32ncurses5 lib32stdc++6 lib32z1 libc6-i386 curl 
-
-RUN \
+  apt-get install -y lib32gcc1 lib32ncurses5 lib32stdc++6 lib32z1 libc6-i386 curl git && \
   add-apt-repository ppa:openjdk-r/ppa && \
   apt-get update && \
-  apt-get install -y default-jdk openjdk-7-jdk openjdk-8-jdk 
-
-RUN useradd --create-home --shell /bin/bash developer
+  apt-get install -y default-jdk openjdk-7-jdk openjdk-8-jdk  && \
+  apt-get autoremove --yes
 
 ENV HOME=/home/developer
 ENV ANDROID_HOME=/home/developer/android-sdk-linux
@@ -29,6 +24,7 @@ ENV JAVA7_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 ENV JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
+RUN useradd --create-home --shell /bin/bash developer
 USER developer
 
 RUN curl -L http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar -zx -C $HOME
