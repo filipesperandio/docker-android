@@ -29,7 +29,9 @@ USER developer
 
 RUN curl -L http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz | tar -zx -C $HOME
 
-RUN echo y | android update sdk --all --no-ui --force --filter android-23 \
+RUN \ 
+  echo y | android update sdk --all --no-ui --force --filter android-23 \
+    && echo y | android update sdk --all --no-ui --force --filter android-25 \
     && echo y | android update sdk --all --no-ui --force --filter tools \
     && echo y | android update sdk --all --no-ui --force --filter platform-tools \
     && echo y | android update sdk --all --no-ui --force --filter build-tools-23.0.2 \
